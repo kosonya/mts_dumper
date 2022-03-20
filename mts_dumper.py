@@ -103,11 +103,11 @@ def main():
             if step_offset is None:
                 continue
             note_offset = math.copysign((step+step_offset)%len(notes), step_offset)
-            base_note = notes[int(note_offset)]
+            base_note = notes[abs(int(note_offset))]
             step_with_offset = step + step_offset
             octave_offset = step_with_offset//len(notes)
             octave2 = base_octave + int(octave_offset)
-            print("{step:2d} ({note:2s}{octave:2d}): \t {scale_cent:15.4f}  =  {base_note:2s}{octave2:2d} + {offset:15.4f} cents".format(step=(step+1), note=note, octave=base_octave, scale_cent=scale_cent, base_note=base_note, octave2=octave2, offset=cents_offset)     )
+            print("{step:2d} ({note:2s}{octave:2d}): \t {scale_cent:15.4f}  =  {base_note:2s}{octave2:2d} + {offset:15.4f} cents".format(step=(step+1),     note=note, octave=base_octave, scale_cent=scale_cent, base_note=base_note, octave2=octave2, offset=cents_offset)     )
         print("\n\n")
     
     if args.bytes_per_message is not None:
